@@ -11,7 +11,7 @@ async function generateCostSuggestions(jobDetails: string): Promise<string> {
   
   try {
     const response: OpenAI.Completions.Completion = await openAI.completions.create({
-      model: "gpt-4",
+      model: "gpt-3.5-turbo",
       prompt: prompt,
       max_tokens: 150,
       n: 1,
@@ -19,11 +19,13 @@ async function generateCostSuggestions(jobDetails: string): Promise<string> {
       temperature: 0.7,
     });
 
-    if (response.data.choices && response.data.choices.length > 0) {
-      return response.data.choices[0].text?.trim() || "No suggestions generated.";
-    } else {
-      return "No suggestions generated.";
-    }
+    return 'okay';
+
+    // if (response.data.choices && response.data.choices.length > 0) {
+    //   return response.data.choices[0].text?.trim() || "No suggestions generated.";
+    // } else {
+    //   return "No suggestions generated.";
+    // }
   } catch (error) {
     console.error("Error generating cost suggestions:", error);
     throw new Error("Failed to generate cost suggestions");
