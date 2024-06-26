@@ -5,7 +5,7 @@
             "type": "node",
             "request": "launch",
             "name": "Run TS File",
-            "args": ["${relativeFile}", "--devMode"],
+            "args": ["${relativeFile}", "--example=3"],
             "cwd": "${workspaceRoot}",
             "runtimeArgs": ["-r", "ts-node/register"],
             "internalConsoleOptions": "openOnSessionStart"
