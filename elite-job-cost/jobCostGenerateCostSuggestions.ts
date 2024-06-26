@@ -95,28 +95,55 @@ interface JobCostSuggestionResponse {
  * 
  * Actual OpenAI Example Response:
  * ```
- * [
- *  {
- *    "name": "Labor",
- *    "children": ["Setup", "Tear Down", "Event Staff]
- *  },
- *  {
- *    "name": "Equipment",
- *    "children": ["Tables", "Chairs", "Tents"]
- *  },
- *  {
- *    "name": "Catering",
- *    "children": ["Food", "Drinks", "Service Staff"]
- *  }
- *  {
- *    "name": "Permits",
- *    "children": ["Venue Permit", "Sound Permit"]
- *  },
- *  {
- *    "name": "Miscellaneous",
- *    "children": ["Signage", "Sanitation"]
- *  }
- * ]
+    {
+      "groups": [
+        {
+          "name": "Venue and Setup",
+          "children": [
+            "Venue Rental",
+            "Tent and Canopy Rental",
+            "Seating and Tables",
+            "Stage and Podium Setup",
+            "Decorations"
+          ]
+        },
+        {
+          "name": "Audio and Visual",
+          "children": [
+            "Sound System Rental",
+            "Microphones",
+            "Projector and Screen",
+            "Lighting"
+          ]
+        },
+        {
+          "name": "Catering",
+          "children": [
+            "Food and Beverages",
+            "Catering Staff",
+            "Utensils and Plates",
+            "Beverage Station"
+          ]
+        },
+        {
+          "name": "Entertainment",
+          "children": [
+            "Live Band or DJ",
+            "Guest Speaker Fees",
+            "Interactive Activities"
+          ]
+        },
+        {
+          "name": "Miscellaneous",
+          "children": [
+            "Permits and Licenses",
+            "Security",
+            "Cleaning Services",
+            "Insurance"
+          ]
+        }
+      ]
+    }
  * ```
  */
 const example1: JobCostSuggestionRequest = {
@@ -133,20 +160,75 @@ const example1: JobCostSuggestionRequest = {
  * 
  * Actual OpenAI Example Response:
  * ```
- * [
- *  {
- *    "name": "Equipment Rental",
- *    "children": ['Bobcat Rental', 'Concrete Mixer Rental']
- *  },
- *  {
- *    "name": "Labor",
- *    "children": ['Delivery', 'Operation', 'Pickup']
- *  },
- *  {
- *    "name": "Miscellaneous",
- *    "children": ['Fuel', 'Insurance']
- *  }
- * ]
+  {
+    "groups": [
+      {
+        "name": "Equipment Rental",
+        "children": [
+          {
+            "name": "Bobcat Rental",
+            "children": []
+          },
+          {
+            "name": "Concrete Mixer Rental",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Delivery and Pickup",
+        "children": [
+          {
+            "name": "Delivery Fee",
+            "children": []
+          },
+          {
+            "name": "Pickup Fee",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Labor",
+        "children": [
+          {
+            "name": "Operator Wages",
+            "children": []
+          },
+          {
+            "name": "Overtime Charges",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Materials",
+        "children": [
+          {
+            "name": "Fuel Costs",
+            "children": []
+          },
+          {
+            "name": "Concrete",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Permits and Fees",
+        "children": [
+          {
+            "name": "City Permits",
+            "children": []
+          },
+          {
+            "name": "Inspection Fees",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
  * ```
  */
 const example2: JobCostSuggestionRequest = {
@@ -167,24 +249,51 @@ const example2: JobCostSuggestionRequest = {
  * 
  * Actual OpenAI Example Response:
  * ```
- * [
- *  {
- *    "name": 'Truck Delivery',
- *    "children": ['Truck 1', 'Truck 2', 'Bobcat Delivery', 'Concrete Mixer Delivery']
- *  },
- *  {
- *    "name": 'Delivery Labor',
- *    "children": ['DSR1', 'DSR2', 'Bobcat Operator', 'Concrete Mixer Operator']
- *  },
- *  {
- *    "name": 'Equipment Rental',
- *    "children": ['Bobcat Rental', 'Concrete Mixer Rental']
- *  },
- *  {
- *    "name": 'Project Management',
- *    "children": ['Site Supervisor', 'Safety Inspector']
- *  }
- * ]
+  {
+    "groups": [
+      {
+        "name": "Truck Delivery",
+        "children": [
+          "Truck 1",
+          "Truck 2",
+          "Bobcat Delivery",
+          "Concrete Mixer Delivery"
+        ]
+      },
+      {
+        "name": "Delivery Labor",
+        "children": [
+          "DSR1",
+          "DSR2",
+          "Bobcat Operator",
+          "Concrete Mixer Operator"
+        ]
+      },
+      {
+        "name": "Equipment Rental",
+        "children": [
+          "Bobcat Rental",
+          "Concrete Mixer Rental"
+        ]
+      },
+      {
+        "name": "Site Preparation",
+        "children": [
+          "Site Inspection",
+          "Site Clearing",
+          "Safety Setup"
+        ]
+      },
+      {
+        "name": "Materials",
+        "children": [
+          "Concrete",
+          "Rebar",
+          "Gravel"
+        ]
+      }
+    ]
+  }
  * ```
  */
 const example3: JobCostSuggestionRequest = {
